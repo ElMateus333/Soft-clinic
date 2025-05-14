@@ -98,7 +98,7 @@ A API utiliza os seguintes middlewares:
 * `Error handling` - um middleware para lidar com erros na API.
 
 ## Contribuidores
-- [@Mateus Rayrisson](https://github.com/hassan9810)
+- [@Mateus Rayrisson](https://github.com/ElMateus333)
 - [@Arthur Oliveira]
 
 ## Conclusão
