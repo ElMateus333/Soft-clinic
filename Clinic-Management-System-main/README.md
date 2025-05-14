@@ -1,13 +1,11 @@
-# Clinic-Management-System
-Clinic Management System - RESTful API to manage multiple clinics, incl. authentication, authorization, patients, doctors, employees, medicines, clinics, appointments, prescriptions, invoices, &amp; payments. Manage all clinic data with ease.
+# Sistema de Gestão de Clínicas
+Sistema de Gestão de Clínicas - API RESTful para gerenciar múltiplas clínicas, incluindo autenticação, autorização, pacientes, médicos, funcionários, medicamentos, clínicas, consultas, prescrições, faturas e pagamentos. Gerencie todos os dados da clínica com facilidade.
 
+## Introdução
+Esta é uma API REST que implementa um sistema de gestão de clínicas médicas. Ela fornece endpoints para diferentes entidades no sistema (pacientes, médicos, funcionários, etc.), cada uma com suas próprias operações CRUD. Ela também oferece diferentes papéis e níveis de autorização para diferentes usuários. A API usa MongoDB para persistência e é construída usando Node.js e o framework Express.
 
-## Introduction
-This is a REST API that implements a medical clinic management system. It provides endpoints for different entities in the system (patients, doctors, employees, etc.), each with its own CRUD operations. it also offers different roles and authorization levels for different users. The API uses MongoDB for persistence and is built using Node.js and the Express framework.
-
-
-## Technologies
-The following technologies were used to develop the platform:
+## Tecnologias
+As seguintes tecnologias foram usadas para desenvolver a plataforma:
 
 - Node.js
 - Express
@@ -26,109 +24,83 @@ The following technologies were used to develop the platform:
 - stripe
 - validatorjs
 
+## Recursos
 
-## Resources
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
-- https://expressjs.com/
-- https://www.mongodb.com/
-
-## Requirements
+## Requisitos
 
 * Node.js
 * npm
 * MongoDB
 
-## Tools
+## Ferramentas
 
-- https://code.visualstudio.com/
-- https://www.mongodb.com/products/compass
-- https://robomongo.org/
-- https://www.postman.com/
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [MongoDB Compass](https://www.mongodb.com/products/compass)
+- [Robo 3T](https://robomongo.org/)
+- [Postman](https://www.postman.com/)
 
-## Configuration
+## Configuração
 
-The API uses the following environment variables:
+A API usa as seguintes variáveis de ambiente:
 
-* `PORT` - the port on which the API will listen for incoming requests.
-* `MONGODB_URI` - the URL of the MongoDB database to connect to.
-* `MONGODB_LOCAL` - the URL of the local MongoDB database to connect to.
-* `SECRET_KEY` - a string used for bcrypt to secure the application and encrypt user passwords.
-* `SECRET_KEY_STRIPE` - a string used to authenticate with the Stripe payment processing API and securely handle transactions.
+* `PORT` - a porta na qual a API vai escutar por requisições.
+* `MONGODB_URI` - a URL do banco de dados MongoDB para conectar.
+* `MONGODB_LOCAL` - a URL do banco de dados MongoDB local para conectar.
+* `SECRET_KEY` - uma string usada para o bcrypt para proteger a aplicação e criptografar senhas de usuários.
+* `SECRET_KEY_STRIPE` - uma string usada para autenticar com a API de processamento de pagamentos Stripe e tratar transações de forma segura.
 
-## Installation
-To install the platform and its dependencies, follow these steps:
-1. Clone the repository.
-$ git clone https://github.com/hassan9810/Clinic-Management-System
+## Instalação
+Para instalar a plataforma e suas dependências, siga os seguintes passos:
 
-2. Install the dependencies.
-```bash
-$ npm install
-```
+## Funcionalidades
 
-3. Create a .env file in the project directory and set the following environment variables:
-- PORT=<PORT NUMBER>
-- MONGODB_URI=<MONGODB URI>
-- MONGODB_LOCAL=<LOCAL MONGODB URI>
-- SECRET_KEY = <SECRET KEY FOR BCRYPT ENCRPTION>
-- SECRET_KEY_STRIPE = <FOR STRIPT>
+O projeto possui diversas funcionalidades, incluindo:
 
-5. Start the database server:
-```bash
-$ mongod
-```
-4. Start the application.
-```bash
-$ npm start
-```
-
-## Functionalities
-The project has several functionalities, including:
-
-- Registering patients: Allows patients to register to the medical center.
-- Authenticating users: Allows users to authenticate to the medical center.
-- Managing appointments: Allows users to manage appointments, including adding appointments, getting all appointments, and more.
-- Managing prescriptions: Allows users to manage prescriptions, including adding prescriptions and getting all prescriptions.
-- Managing invoices: Allows users to manage invoices, including adding invoices and getting all invoices.
-- Managing payments: Allows users to manage payments, including adding payments and getting all payments.
+- Cadastrar pacientes: Permite que pacientes se cadastrem no centro médico.
+- Autenticar usuários: Permite que usuários se autentiquem no centro médico.
+- Gerenciar consultas: Permite que usuários gerenciem consultas, incluindo adicionar consultas, obter todas as consultas e mais.
+- Gerenciar prescrições: Permite que usuários gerenciem prescrições, incluindo adicionar prescrições e obter todas as prescrições.
+- Gerenciar faturas: Permite que usuários gerenciem faturas, incluindo adicionar faturas e obter todas as faturas.
+- Gerenciar pagamentos: Permite que usuários gerenciem pagamentos, incluindo adicionar pagamentos e obter todos os pagamentos.
 
 
 ## Endpoints
 
-The API implements the following endpoints:
+A API implementa os seguintes endpoints:
 
-* `/register` - POST request to register a new patient.
-* `/auth` - POST request to authenticate a user.
-* `/doctor` - CRUD operations on doctors.
-* `/patient` - CRUD operations on patients.
-* `/employee` - CRUD operations on employees.
-* `/medicine` - CRUD operations on medicines.
-* `/clinic` - CRUD operations on clinics.
-* `/appointment` - CRUD operations on appointments.
-* `/prescription` - CRUD operations on prescriptions.
-* `/invoice` - CRUD operations on invoices.
-* `/payment` - CRUD operations on payments.
+* `/register` - Requisição POST para cadastrar um novo paciente.
+* `/auth` - Requisição POST para autenticar um usuário.
+* `/doctor` - Operações CRUD em médicos.
+* `/patient` - Operações CRUD em pacientes.
+* `/employee` - Operações CRUD em funcionários.
+* `/medicine` - Operações CRUD em medicamentos.
+* `/clinic` - Operações CRUD em clínicas.
+* `/appointment` - Operações CRUD em consultas.
+* `/prescription` - Operações CRUD em prescrições.
+* `/invoice` - Operações CRUD em faturas.
+* `/payment` - Operações CRUD em pagamentos.
 
-Each endpoint supports the following methods: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
+Cada endpoint suporta os seguintes métodos: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`.
 
 
 
 ## Middlewares
 
-The API uses the following middlewares:
+A API utiliza os seguintes middlewares:
 
-* `Morgan` - a logging middleware.
-* `express.json` - a body parser middleware.
-* `Routes` - endpoint middlewares.
-* `File not found` - a middleware to handle requests to non-existing endpoints.
-* `Error handling` - a middleware to handle errors in the API.
+* `Morgan` - um middleware de logging.
+* `express.json` - um middleware de body parser.
+* `Routes` - middlewares de endpoint.
+* `File not found` - um middleware para lidar com requisições para endpoints inexistentes.
+* `Error handling` - um middleware para lidar com erros na API.
 
-## Contributors
-- [@Ahmed Hassan](https://github.com/hassan9810)
-- [@Mohammed Ibrahim](https://github.com/MoIbrahim10)
-- [@Amr Allam](https://github.com/amriallam)
-- [@Mohammed Alaa](https://github.com/moalaacs)
-- [@Hazem Magdy](https://github.com/Hazem-Magdy)
+## Contribuidores
+- [@Mateus Rayrisson](https://github.com/hassan9810)
+- [@Arthur Oliveira]
 
-## Conclusion
+## Conclusão
 
-This API provides a complete solution for managing a medical clinic and can be used as a starting point for further customization and expansion.
+Esta API fornece uma solução completa para gerenciar uma clínica médica e pode ser usada como ponto de partida para futuras personalizações e expansões.
